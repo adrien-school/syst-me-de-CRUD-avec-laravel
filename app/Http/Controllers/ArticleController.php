@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Article ;
 use Illuminate\Http\Request;
  use App\Http\Requests\TExtrequest;
+ use illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -18,13 +19,14 @@ public function index(Request $request){
     $article =Article::create([
         'name'=>$request->name ,
         'description'=>$request->description,
+        'user_id'=>Auth::id()
     ]);
     $article->save() ;
     return redirect()->back()->with('success' ,'l\'article a bel et bien ete enregistrer') ;
    
    }else{
 
-    return redirect->back() ;
+    return redirect()->back() ;
    }
        
     
@@ -55,6 +57,10 @@ public function update( TExtrequest $request ,Article $article){
 public function deleter(Article $article){
     $article->delete();
     return redirect('/accueil')->with('success' ,'l\'article a bel et bien ete suprimer') ;
+}
+public function mine(){
+$Myarticles = Article::where('user_id',Auth::id())->get() ;
+    return view('mine',compact('Myarticles'));
 }
 }
 
