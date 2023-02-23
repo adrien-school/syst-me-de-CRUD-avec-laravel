@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['name','description','user_id'] ;
+    protected $fillable = ['name','description','user_id',] ;
     use HasFactory;
 }

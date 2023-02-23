@@ -1,8 +1,7 @@
 <?php
 
 namespace Database\Factories;
-use App\Models\User ;
-
+use  App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -10,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ArticleFactory extends Factory
 {
+    
     /**
      * Define the model's default state.
      *
@@ -18,9 +18,9 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>$this->faker->sentence() ,
-            'description'=>$this->faker->text(),
-            'user_id'=>User::all()->random()->id ,
+            'name'=>$this->faker->sentence,
+            'description'=>$this->faker->text,
+            'user_id'=>User::all()->random()->id,
         ];
     }
 }

@@ -48,4 +48,7 @@
 </div>
 
 </div>
+<div class=" position-relative mt-5 py-2 px-2 ">
+{{ $articles->links() }}
+</div>
 @stop 

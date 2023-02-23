@@ -32,7 +32,7 @@ public function index(Request $request){
     
 }
 public function index1(){
-    $articles =Article::all() ;
+    $articles =Article::paginate(5) ;
     return view('accueil',compact('articles'));
 }
 public function details($id){
